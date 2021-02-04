@@ -2,5 +2,26 @@
     width: 380px;
     padding: 10% 0 0;
     margin: auto;
+}
+
+.login-form{
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    max-width: 380px;
+    margin: 0 auto 100px;
+    padding: 50px;
+    text-align: center;
+}
+
+.login-form input{
+    font-family: "Roboto", sans-serif;
+    outline: 1;
+    background: #dbdbdb;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    box-sizing: border-box;
+    font-size: 30px;
 
 }
