@@ -1,4 +1,4 @@
-class Photo{
+class User{
     constructor(username, email, password_digest){
         this.username = username;
         this.email = email;
