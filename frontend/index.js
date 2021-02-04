@@ -1,7 +1,11 @@
-document.addEventListener("DOMCOntentLoaded", () => {
-    debugger;
+document.addEventListener("DOMContentLoaded", () => {
+    
+    fetchUsers()
 
-    const BASE_URL = "http://127.0.0.1:3000"
+    
+})
+
+const BASE_URL = "http://127.0.0.1:3000"
     // list all users
 
     function fetchUsers(){
@@ -10,6 +14,7 @@ document.addEventListener("DOMCOntentLoaded", () => {
         .then(users => {
             for (const user of users){
                 let u = new User(user.id, user.username, user.email, user.password)
+                
             }
 
         })
@@ -19,4 +24,3 @@ document.addEventListener("DOMCOntentLoaded", () => {
     //create new users
 
     //delete users
-})
