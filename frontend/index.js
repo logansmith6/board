@@ -6,6 +6,10 @@ document.addEventListener("DOMCOntentLoaded", () => {
 
     function fetchUsers(){
         fetch(`${BASE_URL}/users`)
+        .then(resp => resp.json())
+       
+
+        })
     }
 
     //create new users
