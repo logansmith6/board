@@ -14,7 +14,7 @@ const BASE_URL = "http://127.0.0.1:3000"
         .then(users => {
             for (const user of users){
                 let u = new User(user.id, user.username, user.email, user.password)
-                
+                u.renderUser();
             }
 
         })
