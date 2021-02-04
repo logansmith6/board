@@ -1,10 +1,10 @@
-.login{
+.login-page{
     width: 380px;
     padding: 10% 0 0;
     margin: auto;
 }
 
-.login-form{
+.register{
     position: relative;
     z-index: 1;
     background: #ffffff;
@@ -26,6 +26,31 @@
 }
 
 .login-form button{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #013697;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 30px;
+    cursor: pointer;
+
+}
+
+.register-form input{
+    font-family: "Roboto", sans-serif;
+    outline: 1;
+    background: #dbdbdb;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    box-sizing: border-box;
+    font-size: 30px;
+}
+
+.register-form button{
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
