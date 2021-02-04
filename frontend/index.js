@@ -1,3 +1,3 @@
-document.addEventListener("DOMCOntentLoaded", => {
-    debugger
+document.addEventListener("DOMCOntentLoaded", () => {
+    debugger;
 })
