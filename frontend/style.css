@@ -25,20 +25,6 @@
     font-size: 30px;
 }
 
-.login-form button{
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background: #013697;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 30px;
-    cursor: pointer;
-
-}
-
 .register-form input{
     font-family: "Roboto", sans-serif;
     outline: 1;
@@ -61,5 +47,37 @@
     color: #FFFFFF;
     font-size: 30px;
     cursor: pointer;
+}
+
+.login-form button{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #013697;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 30px;
+    cursor: pointer;
 
 }
+
+.login-form button:hover,.login-form button:active{
+    background: #063180;
+}
+.register-form button:hover,.register-form button:active{
+    background: #063180;
+}
+
+.register .message{
+    margin: 15px 0 0;
+    color: rgb(47, 51, 54);
+    font-size: 23px;
+}
+
+.register .message a{
+    color: #4CAF50;
+    text-decoration: none;
+}
+
