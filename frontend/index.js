@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
+    newUserForm()
     fetchUsers()
 
     
@@ -22,5 +22,13 @@ const BASE_URL = "http://127.0.0.1:3000"
     }
 
     //create new users
+
+    function newUserForm(){
+        let registration = document.getElementById("registration");
+        registration.addEventListener("click", ()=>{
+            
+        })
+
+    }
 
     //delete users

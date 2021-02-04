@@ -36,7 +36,7 @@
     font-size: 30px;
 }
 
-.register-form button{
+.register-form .register-button{
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
@@ -49,7 +49,7 @@
     cursor: pointer;
 }
 
-.login-form button{
+.login-form .login-button{
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
@@ -63,10 +63,10 @@
 
 }
 
-.login-form button:hover,.login-form button:active{
+.login-form .login-button:hover,.login-form .login-button:active{
     background: #063180;
 }
-.register-form button:hover,.register-form button:active{
+.register-form .register-button:hover,.register-form .register-button:active{
     background: #063180;
 }
 
