@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     newUserForm()
     fetchUsers()
-    authenticateUsers()
+    
     
     
 })
@@ -24,7 +24,7 @@ const BASE_URL = "http://127.0.0.1:3000"
     //create new users
 function newUserForm(){
     
-       
+    
     let registration = document.getElementById("signMeUp");
     registration.addEventListener("submit", ()=>{
         let username = document.getElementById("usernameReg").value;
@@ -34,7 +34,7 @@ function newUserForm(){
         username: username,
         email: email,
         password: password
-                }
+                } 
     fetch(`${BASE_URL}/users`, {
         method: "POST",
         headers: {
@@ -51,29 +51,7 @@ function newUserForm(){
     })
 }
  
-function authenticateUsers(){
-    let registration = document.getElementById("patMeDown");
-    registration.addEventListener("submit", ()=>{
-        let x = document.getElementById("usernameLog").value;
-        let y = document.getElementById("passwordLog").value;
-        let user = {
-            username: x,
-            password: y
-                    }    
-                    debugger
-            let people = [...document.querySelectorAll('.listedUsers')].map(i => i.textContent)
-        
-            for(const person of people){
-                if (x === person)
-                {
-                    //openGames()
-                }else {
-                    this.location.reload();
-                    alert("Incorrect Username/Password.")
-                }
-            }
-        })   
-}
+
     //delete users
 
     function deleteUser(){
