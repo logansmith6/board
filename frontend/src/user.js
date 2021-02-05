@@ -6,6 +6,9 @@ class User{
         this.password = password;
     }
 
+
+
+
     //user instance method
 
     renderUser(){
@@ -14,7 +17,5 @@ class User{
         `
         ${this.username +" "+ this.password +" "+ this.email}<br>
         `
-        
-
     }
 }
