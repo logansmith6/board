@@ -11,12 +11,7 @@ class User{
     renderUser(){
         let shownUser = document.getElementById("users-container");
 
-        shownUser.innerHTML += 
-        `
-        <ul> 
-        <li> ${this.username}</li>
-        </ul
-        `
+        
 
     }
 }

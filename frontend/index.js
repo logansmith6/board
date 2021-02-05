@@ -20,17 +20,26 @@ const BASE_URL = "http://127.0.0.1:3000"
     }
 
     //create new users
-/*
+
     function newUserForm(){
         let registration = document.getElementById("registration");
         registration.addEventListener("submit", ()=>{
             let username = document.getElementById("username").value;
             let email = document.getElementById("email").value;
             let password = document.getElementById("password")
+
+            let user = {
+                username: username,
+                email: email,
+                password: password
+            }
+
+            
+
         })
 
     }
 
     //delete users
 
-    */
+    
