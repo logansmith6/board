@@ -54,21 +54,21 @@ function newUserForm(){
 function authenticateUsers(){
     let registration = document.getElementById("patMeDown");
     registration.addEventListener("submit", ()=>{
-        let username = document.getElementById("usernameLog");
-        let password = document.getElementById("passwordLog").value;
+        let x = document.getElementById("usernameLog").value;
+        let y = document.getElementById("passwordLog").value;
         let user = {
-            username: username,
-            password: password
-                    }
-                
-        let people = document.querySelectorAll("#users-container");
+            username: x,
+            password: y
+                    }    
+            let people = [...document.querySelectorAll('.listedUsers')].map(i => i.textContent)
         
             for(const person of people){
-                let med = person.innerText.split(" ")[1]
-                if (user.username == me)
+                if (x === person)
                 {
-                    console.log(me)
-                    
+                    //openGames()
+                }else {
+                    this.location.reload();
+                    alert("Incorrect Username/Password.")
                 }
             }
         })   
