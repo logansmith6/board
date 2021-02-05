@@ -10,7 +10,10 @@ class User{
 
     renderUser(){
         let shownUser = document.getElementById("users-container");
-
+        shownUser.innerHTML += 
+        `
+        ${this.username +" "+ this.password +" "+ this.email}<br>
+        `
         
 
     }

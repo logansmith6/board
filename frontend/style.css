@@ -1,12 +1,13 @@
 .login-page{
     padding: 10% 0 0;
     margin: auto;
+    
 }
 
 .register{
     position: relative;
     z-index: 1;
-    background: #ffffff;
+    background: #aaa8a8;
     max-width: 380px;
     margin: 0 auto 100px;
     padding: 50px;
