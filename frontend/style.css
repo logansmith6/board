@@ -46,3 +46,68 @@
     width: 91%;
     
 }
+
+
+#chessboard {
+    width: 640px;
+    height: 640px;
+    margin: 20px;
+    border: 2px solid #333;
+    position: relative;
+
+}
+.black {
+    float: left;
+    width: 80px;
+    height: 80px;
+    background-color: #333333;
+    font-size:50px;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+    cursor:pointer;
+    font-weight:bold;
+}
+.white {
+    float: left;
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    font-size:50px;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+.black-coin{
+    background: black;
+    width: 20px;
+    height: 20px;
+    cursor:pointer;
+    position: relative;
+    margin: 37% auto;
+    transition: left .5s ease-in, top .5s ease-in;
+}
+
+.white-border{
+    border: 2px solid white;
+}
+
+.white-coin{
+    background: white;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    margin: 37% auto;
+    cursor:pointer;
+    transition: left .5s ease-in, top .5s ease-in;
+}
+
+.black-border{
+    border: 2px solid black;
+}
+
+
+.red-border{border: 2px solid red; box-sizing: border-box;}
+<html lang="en">
