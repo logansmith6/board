@@ -1,7 +1,9 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     newUserForm()
     fetchUsers()
-
+    authenticateUsers()
+    
     
 })
 
@@ -21,6 +23,8 @@ const BASE_URL = "http://127.0.0.1:3000"
 
     //create new users
 function newUserForm(){
+    
+       
     let registration = document.getElementById("signMeUp");
     registration.addEventListener("submit", ()=>{
         let username = document.getElementById("usernameReg").value;
@@ -42,15 +46,42 @@ function newUserForm(){
     .then(resp => resp.json())
     .then(user => {
         let u = new User(user.id, user.username, user.email, user.password);
-        u.renderUser();
+        
         })
     })
 }
-
  
-
-
-
+function authenticateUsers(){
+    let registration = document.getElementById("patMeDown");
+    registration.addEventListener("submit", ()=>{
+        let username = document.getElementById("usernameLog");
+        let password = document.getElementById("passwordLog").value;
+        let user = {
+            username: username,
+            password: password
+                    }
+                
+        let people = document.querySelectorAll("#users-container");
+        
+            for(const person of people){
+                let med = person.innerText.split(" ")[1]
+                if (user.username == me)
+                {
+                    console.log(me)
+                    
+                }
+            }
+        })   
+}
     //delete users
+
+    function deleteUser(){
+        let userId = parseInt(event.target.dataset.id)
+
+        fetch(`${BASE_URL}/users/${userId}`, {
+            method: 'DELETE'
+        })
+        this.location.reload();
+    }
 
     

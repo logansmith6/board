@@ -15,7 +15,13 @@ class User{
         let shownUser = document.getElementById("users-container");
         shownUser.innerHTML += 
         `
-        ${this.username +" "+ this.password +" "+ this.email}<br>
+        <ul>
+        <li class="listedUsers">
+        Username: ${this.username}<br>
+        </li>
+        Email: ${this.email}<br>
+        <button class="delete-bttn" data-id=${this.id} onclick="deleteUser()">Delete User</button>
+        </ul>
         `
     }
 }
