@@ -28,11 +28,22 @@ const BASE_URL = "http://127.0.0.1:3000"
             let email = document.getElementById("email").value;
             let password = document.getElementById("password")
 
-            let user = {
-                username: username,
-                email: email,
-                password: password
-            }
+        let user = {
+            username: username,
+            email: email,
+            password: password
+        }
+
+        fetch(`${BASE_URL}/users`, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+
+        
 
             
 
