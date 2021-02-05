@@ -1,5 +1,5 @@
 .login-page{
-    width: 380px;
+    
     padding: 10% 0 0;
     margin: auto;
 }
@@ -47,6 +47,7 @@
     color: #FFFFFF;
     font-size: 30px;
     cursor: pointer;
+   
 }
 
 .login-form .login-button{
@@ -70,14 +71,38 @@
     background: #063180;
 }
 
-.register .message{
-    margin: 15px 0 0;
-    color: rgb(47, 51, 54);
-    font-size: 23px;
-}
 
-.register .message a{
-    color: #4CAF50;
+
+.button-2{
+    color: #4c56af;
     text-decoration: none;
+    font-weight: bold;
+    display: none;
+    margin-top: 65%;
+    margin-left:39%;
 }
 
+.button-1{
+    color: #4c56af;
+    text-decoration: none;
+    font-weight: bold;
+    
+    
+}
+
+.login-form-container{
+    text-align: center;
+    margin-top: 12%;
+    width: 91%;
+    
+}
+.register-form-container{
+    width: 70%;
+    position: absolute;
+    text-align: center;
+    display: none;
+    
+    
+
+    
+}

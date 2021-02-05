@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    newUserForm()
+    //newUserForm()
     fetchUsers()
 
     
@@ -16,19 +16,21 @@ const BASE_URL = "http://127.0.0.1:3000"
                 let u = new User(user.id, user.username, user.email, user.password)
                 u.renderUser();
             }
-
         })
-
     }
 
     //create new users
-
+/*
     function newUserForm(){
         let registration = document.getElementById("registration");
-        registration.addEventListener("click", ()=>{
-            
+        registration.addEventListener("submit", ()=>{
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password")
         })
 
     }
 
     //delete users
+
+    */
