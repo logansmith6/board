@@ -27,13 +27,13 @@ function newUserForm(){
     
     let registration = document.getElementById("signMeUp");
     registration.addEventListener("submit", ()=>{
-        let username = document.getElementById("usernameReg").value;
-        let email = document.getElementById("emailReg").value;
-        let password = document.getElementById("passwordReg").value;
+        let username = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
+        let password_digest = document.getElementById("password").value;
     let user = {
         username: username,
         email: email,
-        password_digest: password
+        password_digest: password_digest
                 } 
     fetch(`${BASE_URL}/users`, {
         method: "POST",

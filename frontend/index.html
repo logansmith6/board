@@ -1,9 +1,6 @@
 <html lang="en">
 <head>
    <link rel="stylesheet" href="style.css">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
-   </script>
-
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Board</title><h5>A Chess Game!</h5>
@@ -21,38 +18,25 @@
       <div class="register" id="registration">
 
          <div class="register-form-container">
-               <form class="register-form" name="encryptThis" id="signMeUp" onsubmit="encryptForm()"> 
-               <input type="text" placeholder="username" id="usernameReg">
-               <input type="text" placeholder="email" id="emailReg">
-               <input type="password" name="password" placeholder="password" id="passwordReg">
+               <form class="register-form" id="signMeUp"> 
+               <input type="text" placeholder="username" id="username">
+               <input type="text" placeholder="email" id="email">
+               <input type="password" name="password" placeholder="password" id="password">
                <input type="submit" class="register-button" value="Sign Up!">
             </form>
          </div>
 
-         <script type="text/javascript">
-               //function for password encryption
-               function encryptForm(){
-                  document.encryptThis.password.value = CryptoJS.MD5(document.encryptThis.password.value);
-                  document.authThis.passwordLog.value = CryptoJS.MD5(document.authThis.passwordLog.value);
-               }
-         </script>
 
          <div class ="login-form-container">
-               <form class="login-form" id="patMeDown" name="authThis" onsubmit="authenticateUsers()" >
-                  <input type="text" placeholder="username" id="usernameLog">
-                  <input type="password" name="passwordLog" placeholder="password" id="passwordLog">
-                  <input type="submit" class="login-button" onclick="encryptForm()" value="Log In!">    
+               <form class="login-form" id="patMeDown">
+                  <input type="text" placeholder="username" id="username">
+                  <input type="password" name="passwordLog" placeholder="password" id="password">
+                  <input type="submit" class="login-button" value="Log In!">    
                     
                </form>
          </div>
          <button class="button-2" onclick="login()">Log in</button>
          <button class="button-1" onclick="signup()">Sign Up</button>
-
-         <script type="text/javascript">
-            function decryptForm(){
-					document.authThis.password.value = CryptoJS.MD5(document.authThis.password.value);
-            }
-			</script>
       </div>
    </div>
     
