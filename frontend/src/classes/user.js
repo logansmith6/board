@@ -15,8 +15,7 @@ class User{
         shownUser.innerHTML += 
         `
         <ul>
-        Username:<li>${this.username}</li><br>
-    
+        <li>Username:${this.username}</li><br>
         <button class="delete-bttn" data-id=${this.id} onclick="deleteUser()">Delete User</button>
         </ul>
         `
