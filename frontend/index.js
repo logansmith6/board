@@ -1,9 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    newUserForm()
     fetchUsers()
-    
-    
+    newUserForm()
     
 })
 
@@ -15,7 +13,7 @@ const BASE_URL = "http://127.0.0.1:3000"
         .then(resp => resp.json())
         .then(users => {
             for (const user of users){
-                let u = new User(user.id, user.username, user.email, user.password_digest)
+                let u = new User(user.id, user.username)
                 u.renderUser();
             }
         })
@@ -25,15 +23,12 @@ const BASE_URL = "http://127.0.0.1:3000"
 function newUserForm(){
     
     
-    let registration = document.getElementById("signMeUp");
+    let registration = document.getElementById("login-form-container");
     registration.addEventListener("submit", ()=>{
-        let username = document.getElementById("username").value;
-        let email = document.getElementById("email").value;
-        let password_digest = document.getElementById("password").value;
+        
+        
     let user = {
-        username: username,
-        email: email,
-        password_digest: password_digest
+        username: username
                 } 
     fetch(`${BASE_URL}/users`, {
         method: "POST",
@@ -45,7 +40,7 @@ function newUserForm(){
         })
     .then(resp => resp.json())
     .then(user => {
-        let u = new User(user.id, user.username, user.email, user.password_digest);
+        let u = new User(user.id, user.username);
         
         })
     })

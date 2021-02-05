@@ -1,18 +1,11 @@
 .login-page{
     padding: 10% 0 0;
     margin: auto;
+    max-width: 380px;
     
 }
 
-.register{
-    position: relative;
-    z-index: 1;
-    background: #aaa8a8;
-    max-width: 380px;
-    margin: 0 auto 100px;
-    padding: 50px;
-    text-align: center;
-}
+
 
 .login-form input{
     font-family: "Roboto", sans-serif;
@@ -25,30 +18,8 @@
     font-size: 30px;
 }
 
-.register-form input{
-    font-family: "Roboto", sans-serif;
-    outline: 1;
-    background: #dbdbdb;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    box-sizing: border-box;
-    font-size: 30px;
-}
 
-.register-form .register-button{
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background: #013697;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 30px;
-    cursor: pointer;
-   
-}
+
 
 .login-form .login-button{
     font-family: "Roboto", sans-serif;
@@ -67,43 +38,11 @@
 .login-form .login-button:hover,.login-form .login-button:active{
     background: #5d0680;
 }
-.register-form .register-button:hover,.register-form .register-button:active{
-    background: #063180;
-}
 
-
-
-.button-2{
-    
-    color: #4c56af;
-    text-decoration: none;
-    font-weight: bold;
-    display: none;
-    margin-top: 65%;
-    margin-left:39%;
-}
-
-.button-1{
-    color: #4c56af;
-    text-decoration: none;
-    font-weight: bold;
-    
-    
-}
 
 .login-form-container{
     text-align: center;
     margin-top: 12%;
     width: 91%;
-    
-}
-.register-form-container{
-    width: 70%;
-    position: absolute;
-    text-align: center;
-    display: none;
-    
-    
-
     
 }

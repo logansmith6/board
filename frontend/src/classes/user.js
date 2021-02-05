@@ -1,9 +1,8 @@
 class User{
-    constructor(id, username, email, password_digest){
+    constructor(id, username){
         this.id = id;
         this.username = username;
-        this.email = email;
-        this.password_digest = password_digest;
+        
     }
 
 
@@ -16,10 +15,8 @@ class User{
         shownUser.innerHTML += 
         `
         <ul>
-        Username:<li class="listedUsers">${this.username}</li><br>
-        <li>
-        Email: ${this.email}<br>
-        User Id: ${this.id}<br>
+        Username:<li>${this.username}</li><br>
+    
         <button class="delete-bttn" data-id=${this.id} onclick="deleteUser()">Delete User</button>
         </ul>
         `
