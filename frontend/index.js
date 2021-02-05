@@ -20,20 +20,17 @@ const BASE_URL = "http://127.0.0.1:3000"
     }
 
     //create new users
-
     function newUserForm(){
         let registration = document.getElementById("signMeUp");
         registration.addEventListener("submit", ()=>{
             let username = document.getElementById("username").value;
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
-
         let user = {
             username: username,
             email: email,
             password: password
         }
-
         fetch(`${BASE_URL}/users`, {
             method: "POST",
             headers: {
@@ -46,12 +43,8 @@ const BASE_URL = "http://127.0.0.1:3000"
         .then(user => {
             let u = new User(user.id, user.username, user.email, user.password);
             u.renderUser();
+            })
         })
-
-        
-
-        })
-
     }
 
     //delete users
