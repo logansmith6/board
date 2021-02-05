@@ -60,6 +60,7 @@ function authenticateUsers(){
             username: x,
             password: y
                     }    
+                    debugger
             let people = [...document.querySelectorAll('.listedUsers')].map(i => i.textContent)
         
             for(const person of people){

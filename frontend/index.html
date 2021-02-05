@@ -33,15 +33,15 @@
                //function for password encryption
                function encryptForm(){
                   document.encryptThis.password.value = CryptoJS.MD5(document.encryptThis.password.value);
-                  
+                  document.authThis.passwordLog.value = CryptoJS.MD5(document.authThis.passwordLog.value);
                }
          </script>
 
          <div class ="login-form-container">
-               <form class="login-form" id="patMeDown" name="authThis" onsubmit="authenticateUsers()">
+               <form class="login-form" id="patMeDown" name="authThis" onsubmit="authenticateUsers()" >
                   <input type="text" placeholder="username" id="usernameLog">
-                  <input type="password" placeholder="password" id="passwordLog">
-                  <input type="submit" class="login-button" value="Log In!">    
+                  <input type="password" name="passwordLog" placeholder="password" id="passwordLog">
+                  <input type="submit" class="login-button" onclick="encryptForm()" value="Log In!">    
                     
                </form>
          </div>
