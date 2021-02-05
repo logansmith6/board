@@ -1,5 +1,4 @@
 .login-page{
-    
     padding: 10% 0 0;
     margin: auto;
 }
@@ -54,7 +53,7 @@
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #013697;
+    background: #b705bd;
     width: 100%;
     border: 0;
     padding: 15px;
@@ -65,7 +64,7 @@
 }
 
 .login-form .login-button:hover,.login-form .login-button:active{
-    background: #063180;
+    background: #5d0680;
 }
 .register-form .register-button:hover,.register-form .register-button:active{
     background: #063180;
