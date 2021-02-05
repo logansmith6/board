@@ -15,7 +15,7 @@ const BASE_URL = "http://127.0.0.1:3000"
         .then(resp => resp.json())
         .then(users => {
             for (const user of users){
-                let u = new User(user.id, user.username, user.email, user.password)
+                let u = new User(user.id, user.username, user.email, user.password_digest)
                 u.renderUser();
             }
         })
@@ -33,7 +33,7 @@ function newUserForm(){
     let user = {
         username: username,
         email: email,
-        password: password
+        password_digest: password
                 } 
     fetch(`${BASE_URL}/users`, {
         method: "POST",
@@ -45,7 +45,7 @@ function newUserForm(){
         })
     .then(resp => resp.json())
     .then(user => {
-        let u = new User(user.id, user.username, user.email, user.password);
+        let u = new User(user.id, user.username, user.email, user.password_digest);
         
         })
     })
