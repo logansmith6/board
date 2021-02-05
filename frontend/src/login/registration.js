@@ -1,8 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-    
 
-    
-})
 function signup(){
     document.querySelector(".login-form-container").style.cssText="display: none";
     document.querySelector(".register-form-container").style.cssText="display: block";

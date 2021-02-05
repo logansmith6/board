@@ -1,53 +1,62 @@
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
-    </script>
+   <link rel="stylesheet" href="style.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
+   </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board</title><h5>A Chess Game!</h5>
-    <script src="index.js"></script>
-    <script src="src/user.js"></script>
-    <script src="src/game.js"></script>
-    <script src="src/move.js"></script>
-    <script src="src/login/registration.js"></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Board</title><h5>A Chess Game!</h5>
+   <script src="index.js"></script>
+   <script src="src/classes/user.js"></script>
+   <script src="src/classes/game.js"></script>
+   <script src="src/classes/move.js"></script>
+   <script src="src/login/registration.js"></script>
 </head>
 
 <body>
-    <div id="users-container">
-    </div>
-    <div class="login-page">
-        <div class="register" id="registration">
+   <div id="users-container">
+   </div>
+   <div class="login-page">
+      <div class="register" id="registration">
 
-            <div class="register-form-container">
-                <form class="register-form" name="encryptThis" id="signMeUp" onsubmit="encryptForm()"> 
-                    <input type="text" placeholder="username" id="username">
-                    <input type="text" placeholder="email" id="email">
-                    <input type="password" name="password" placeholder="password" id="password">
-                    <input type="submit" class="register-button" value="Sign Up!">
-                </form>
-            </div>
+         <div class="register-form-container">
+               <form class="register-form" name="encryptThis" id="signMeUp" onsubmit="encryptForm()"> 
+               <input type="text" placeholder="username" id="usernameReg">
+               <input type="text" placeholder="email" id="emailReg">
+               <input type="password" name="password" placeholder="password" id="passwordReg">
+               <input type="submit" class="register-button" value="Sign Up!">
+            </form>
+         </div>
 
-            <script>
-                //function for password encryption
-                function encryptForm(){
-                    document.encryptThis.password.value = CryptoJS.MD5(document.encryptThis.password.value);
-                    debugger
-                }
-            </script>
+         <script type="text/javascript">
+               //function for password encryption
+               function encryptForm(){
+                  document.encryptThis.password.value = CryptoJS.MD5(document.encryptThis.password.value);
+                  debugger
+               }
+         </script>
 
-            <div class ="login-form-container">
-                <form class="login-form">
-                    <input type="text" placeholder="username" id="username">
-                    <input type="text" placeholder="password" id="password">
-                    <input type="submit" class="login-button" value="Log In!">    
-                </form>
-            </div>
-            <button class="button-2" onclick="login()">Log in</button>
-            <button class="button-1" onclick="signup()">Sign Up</button>
-        </div>
-    </div>
+         <div class ="login-form-container" onsubmit= "login()">
+               <form class="login-form">
+                  <input type="text" placeholder="username" id="usernameLog">
+                  <input type="text" placeholder="password" id="passwordLog">
+                  <input type="submit" class="login-button" value="Log In!">    
+                    
+               </form>
+         </div>
+         <button class="button-2" onclick="login()">Log in</button>
+         <button class="button-1" onclick="signup()">Sign Up</button>
+
+         <script type="text/javascript">
+            function login(){
+				let user = document.getElementById("usernameLog");
+						
+            }
+
+         </script>
+      </div>
+   </div>
     
 </body>
 </html>
