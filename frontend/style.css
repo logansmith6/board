@@ -109,5 +109,6 @@
 }
 
 
-.red-border{border: 2px solid red; box-sizing: border-box;}
-<html lang="en">
+.red-border{
+    border: 2px solid red; box-sizing: border-box;
+}

@@ -50,22 +50,36 @@ function newUserFormSubmission(){
     .then(resp => resp.json())
     .then(user => {
         let u = new User(user.id, user.username);
-        u.renderUser();
+        if (u.username != "has already been taken"){
+            u.renderUser();
+            showBoard();
+        }   
+            else {
+                alert("username taken")
+        }
             
         })
     
 }
- 
+//delete users
 
-    //delete users
+function deleteUser(){
+    let userId = parseInt(event.target.dataset.id)
 
-    function deleteUser(){
-        let userId = parseInt(event.target.dataset.id)
-
-        fetch(`${BASE_URL}/users/${userId}`, {
+    fetch(`${BASE_URL}/users/${userId}`, {
             method: 'DELETE'
-        })
-        this.location.reload();
-    }
+    })
+    //this.location.reload();
+}
+
+function showBoard(){
+    let form = document.getElementById("login-page");
+    let index = document.getElementById("users-container")
+    form.style.cssText += "display: none";
+    index.style.cssText += "display: block"
+
+}
+
+
 
     
