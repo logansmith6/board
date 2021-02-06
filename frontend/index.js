@@ -186,12 +186,16 @@ function onColClick(check, choice){
             check.currentTarget.classList.remove("red-border");
             activeCoin.parentNode.classList.add("red-border");
         } else {
-            moveCoin(activeCol, coice, activeCoin)
+            moveCoin(activeCol, choice, activeCoin)
         }
     }
 }
 
-
+function  moveCoin(activeCol, choice, activeCoin){
+    if (choice.firstChild){
+        
+    }
+}
 
 
 
