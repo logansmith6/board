@@ -54,6 +54,7 @@ function newUserFormSubmission(){
         if (u.username != "has already been taken"){
             u.renderUser();
             hideLogin();
+            showBoard();
             
         }   
             else {
@@ -79,8 +80,27 @@ function hideLogin(){
     let index = document.getElementById("users-container")
     form.style.cssText += "display: none";
     index.style.cssText += "display: block"
-    
+}
 
+function showBoard(){
+    for(let i = 0; i < 8; i++){
+        let color, boxes, borders;
+        for(let x = 0; x < 8; x++){
+            if((i + x) % 2 === 0){
+                color = "black";
+            } else {
+                color = "white";
+            }
+
+            boxes = document.createElement('div');
+            boxes.id = "column-" + i + x;
+            boxes = document.createElement('div');
+            boxes.classList.add('box');
+            boxes.classList.add(color);
+            borders.classList.add('border-column')
+        }
+    }
+    
 }
 
 

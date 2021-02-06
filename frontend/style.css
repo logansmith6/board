@@ -80,28 +80,8 @@
     cursor:pointer;
 }
 
-.black-coin{
-    background: black;
-    width: 20px;
-    height: 20px;
-    cursor:pointer;
-    position: relative;
-    margin: 37% auto;
-    transition: left .5s ease-in, top .5s ease-in;
-}
-
 .white-border{
     border: 2px solid white;
-}
-
-.white-coin{
-    background: white;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    margin: 37% auto;
-    cursor:pointer;
-    transition: left .5s ease-in, top .5s ease-in;
 }
 
 .black-border{
@@ -112,3 +92,11 @@
 .red-border{
     border: 2px solid red; box-sizing: border-box;
 }
+
+
+#mydiv {
+    background-image: url('chessboard.jpg');
+    background-repeat:no-repeat;
+    background-size:contain;
+    height:640px;width:640px;
+ }
