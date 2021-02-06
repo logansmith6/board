@@ -149,8 +149,49 @@ function renderBoard(){
             }
         }
     }
-    let userChoice = document.getElementsByClassName("checker-column")
+    let checkerCols = document.getElementsByClassName("checkerCol")
+    for(let i = 0; i < checkerCols.length; i++){
+        checkerCols[i].onclick = function (check){
+            let choice = checkerCols[0]
+            while(choice){
+                if (choice.tagName === "div"){
+                    choice.classList.remove("red-border");
+                }
+                choice = choice.nextSibling;
+            }
+            onColClick(check, this);
+        }
+    }
 }
+
+function onColClick(check, choice){
+    choice.classList.add("red-border");
+    if(choice.children[0]){
+        let currentCol = getActiveColumn();
+        if (currentCol && currentCol !== choice){
+            setActiveCol(choice);
+            setActiveCoin(currentCol.children[0]);
+        } else {
+            setActiveCol(choice);
+            setActiveCoin(choice.children[0]);
+        }
+    }
+    let activeCol = getActiveColumn();
+    let activeCoin = getActiveCoin();
+
+    if(activeCol && activeCol !== check.currentTarget){
+        if(Math.abs(activeCol.offsetLeft - check.currentTarget.offsetLeft) > 80 || 
+        Math.abs(activeColumn.offsetTop - check.currentTarget.offsetTop) > 80) {
+            alert("move not allowed");
+            check.currentTarget.classList.remove("red-border");
+            activeCoin.parentNode.classList.add("red-border");
+        } else {
+            moveCoin(activeCol, coice, activeCoin)
+        }
+    }
+}
+
+
 
 
 
