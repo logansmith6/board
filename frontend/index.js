@@ -182,7 +182,7 @@ function onColClick(check, choice){
     if(activeCol && activeCol !== check.currentTarget){
         if(Math.abs(activeCol.offsetLeft - check.currentTarget.offsetLeft) > 80 || 
         Math.abs(activeColumn.offsetTop - check.currentTarget.offsetTop) > 80) {
-            alert("move not allowed");
+            alert("Illegal Move");
             check.currentTarget.classList.remove("red-border");
             activeCoin.parentNode.classList.add("red-border");
         } else {
@@ -193,7 +193,12 @@ function onColClick(check, choice){
 
 function  moveCoin(activeCol, choice, activeCoin){
     if (choice.firstChild){
-        
+        let activeColClass = activeCoin.classList;
+        let choiceClass = choice.firstChild.classList;
+
+        if(activeColClass[1] === choiceClass[1]){
+            alert("Illegal Move.")
+        }
     }
 }
 
