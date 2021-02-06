@@ -94,10 +94,16 @@ function showBoard(){
 
             boxes = document.createElement('div');
             boxes.id = "column-" + i + x;
-            boxes = document.createElement('div');
+            borders = document.createElement('div');
             boxes.classList.add('box');
             boxes.classList.add(color);
-            borders.classList.add('border-column')
+            boxes.classList.add('chess-column');
+            borders.id = "coin-" + i + j;
+            borders.classList.add('border-column');
+
+            document.getElementById("chessboard").appendChild(child);
+
+
         }
     }
     

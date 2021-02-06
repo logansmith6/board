@@ -94,9 +94,22 @@
 }
 
 
-#mydiv {
-    background-image: url('chessboard.jpg');
-    background-repeat:no-repeat;
-    background-size:contain;
-    height:640px;width:640px;
- }
+.black-coin{
+    background: black;
+    width: 20px;
+    height: 20px;
+    cursor:pointer;
+    position: relative;
+    margin: 37% auto;
+    transition: left .5s ease-in, top .5s ease-in;
+}
+
+.white-coin{
+    background: white;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    margin: 37% auto;
+    cursor:pointer;
+    transition: left .5s ease-in, top .5s ease-in;
+}
