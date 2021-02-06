@@ -54,7 +54,7 @@ function newUserFormSubmission(){
         if (u.username != "has already been taken"){
             u.renderUser();
             hideLogin();
-            showBoard();
+            prepareGame();
             
         }   
             else {
@@ -82,6 +82,18 @@ function hideLogin(){
     index.style.cssText += "display: block"
 }
 
+function prepareGame(){
+    let clearBoardBtn = document.createElement("button");
+    clearBoardBtn.innerHTML = 'restart game';
+    document.body.appendChild(clearBoardBtn);
+    clearBoardBtn.addEventListener("click", clean)
+}
+
+function clean(){
+    document.getElementById("checkerboard").innerHTML="";
+    showBoard();
+}
+
 function showBoard(){
     for(let i = 0; i < 8; i++){
         let color, boxes, borders;
@@ -103,11 +115,11 @@ function showBoard(){
 
             document.getElementById("checkerboard").appendChild(boxes);
 
-            if (i < 3){
+            if (i < 3 && color == "black"){
                 document.getElementById("column-" + i + j).appendChild(borders);
                 borders.classList.add("white-checker")
                 borders.classList.add("black-border");
-            } else if (i > 6) {
+            } else if (i > 4 && color =="black") {
                 document.getElementById("column-" + i + j).appendChild(borders);
                 borders.classList.add("black-checker")
                 borders.classList.add("white-border");
