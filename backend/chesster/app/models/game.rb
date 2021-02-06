@@ -1,4 +1,4 @@
 class Game < ApplicationRecord
     has_many :moves
-    has_many :users
+    belongs_to :user
 end

@@ -16,7 +16,7 @@ class User{
         `
         <ul>
         <li>Username:${this.username}</li><br>
-        <button class="delete-bttn" data-id=${this.id} onclick="deleteUser()">Deactivate Account</button>
+        <button class="delete-bttn" data-id=${this.id} onclick="deleteUser()">Quit</button>
         </ul>
         `
         
