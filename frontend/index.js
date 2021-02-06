@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchUsers();
     
     
+    
 })
 
 const BASE_URL = "http://127.0.0.1:3000"
@@ -90,10 +91,33 @@ function prepareGame(){
 
 function clean(){
     document.getElementById("checkerboard").innerHTML="";
-    showBoard();
+    renderBoard();
 }
 
-function showBoard(){
+
+function fetchMoves(){
+    fetch(`${BASE_URL}/moves`)
+    .then(resp => resp.json())
+    .then(moves => {
+        for (const move of moves){
+            let m = new Move(move.id, move.position, move.user_id, move.game_id);
+        }
+    })
+}
+
+function fetchGames(){
+    fetch(`${BASE_URL}/games`)
+    .then(resp => resp.json())
+    .then(games => {
+        for (const game of games){
+            let g = new Game(game.id, game.user_id);
+            
+        }
+    })
+}
+
+function renderBoard(){
+        
     for(let i = 0; i < 8; i++){
         let color, boxes, borders;
         for(let j = 0; j < 8; j++){
@@ -108,9 +132,9 @@ function showBoard(){
             borders = document.createElement('div');
             boxes.classList.add('box');
             boxes.classList.add(color);
-            boxes.classList.add('checker-column');
+            boxes.classList.add('checkerCol');
             borders.id = "checker-" + i + j;
-            borders.classList.add('border-column');
+            borders.classList.add('borderCol');
 
             document.getElementById("checkerboard").appendChild(boxes);
 
@@ -125,7 +149,12 @@ function showBoard(){
             }
         }
     }
+    let userChoice = document.getElementsByClassName("checker-column")
 }
+
+
+
+
 
 
 
