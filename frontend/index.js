@@ -85,28 +85,35 @@ function hideLogin(){
 function showBoard(){
     for(let i = 0; i < 8; i++){
         let color, boxes, borders;
-        for(let x = 0; x < 8; x++){
-            if((i + x) % 2 === 0){
+        for(let j = 0; j < 8; j++){
+            if((i + j) % 2 === 0){
                 color = "black";
             } else {
                 color = "white";
             }
 
             boxes = document.createElement('div');
-            boxes.id = "column-" + i + x;
+            boxes.id = "column-" + i + j;
             borders = document.createElement('div');
             boxes.classList.add('box');
             boxes.classList.add(color);
-            boxes.classList.add('chess-column');
-            borders.id = "coin-" + i + j;
+            boxes.classList.add('checker-column');
+            borders.id = "checker-" + i + j;
             borders.classList.add('border-column');
 
-            document.getElementById("chessboard").appendChild(child);
+            document.getElementById("checkerboard").appendChild(boxes);
 
-
+            if (i < 3){
+                document.getElementById("column-" + i + j).appendChild(borders);
+                borders.classList.add("white-checker")
+                borders.classList.add("black-border");
+            } else if (i > 6) {
+                document.getElementById("column-" + i + j).appendChild(borders);
+                borders.classList.add("black-checker")
+                borders.classList.add("white-border");
+            }
         }
     }
-    
 }
 
 
