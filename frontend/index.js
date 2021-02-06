@@ -15,7 +15,6 @@ const BASE_URL = "http://127.0.0.1:3000"
         .then(users => {
             for (const user of users){
                 let u = new User(user.id, user.username);
-                u.renderUser();
             }
         })
     }
@@ -85,7 +84,7 @@ function hideLogin(){
 function prepareGame(){
     let clearBoardBtn = document.createElement("button");
     clearBoardBtn.innerHTML = 'restart game';
-    document.body.appendChild(clearBoardBtn);
+    document.body.append(clearBoardBtn);
     clearBoardBtn.addEventListener("click", clean)
 }
 
