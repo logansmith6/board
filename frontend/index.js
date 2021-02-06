@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     newUserForm();
     fetchUsers();
     
+    
 })
 
 const BASE_URL = "http://127.0.0.1:3000"
@@ -52,7 +53,8 @@ function newUserFormSubmission(){
         let u = new User(user.id, user.username);
         if (u.username != "has already been taken"){
             u.renderUser();
-            showBoard();
+            hideLogin();
+            
         }   
             else {
                 alert("username taken")
@@ -72,13 +74,15 @@ function deleteUser(){
     //this.location.reload();
 }
 
-function showBoard(){
+function hideLogin(){
     let form = document.getElementById("login-page");
     let index = document.getElementById("users-container")
     form.style.cssText += "display: none";
     index.style.cssText += "display: block"
+    
 
 }
+
 
 
 
