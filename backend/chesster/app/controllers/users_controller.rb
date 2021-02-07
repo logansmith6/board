@@ -26,7 +26,12 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if @user.update(user_params)
+    @user.games << Game.create(user_id: @user.id)
+    x = @user.games.length
+    @user.wins = x;
+    
+    if @user.save
+        
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -46,6 +51,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:id, :username)
+      params.require(:user).permit(:id, :username, :wins, :games_attributes => [:user_id])
     end
 end

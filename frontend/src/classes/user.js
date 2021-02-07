@@ -1,7 +1,10 @@
 class User{
-    constructor(id, username){
+    constructor(id, username, wins = 0){
         this.id = id;
         this.username = username;
+        this.wins = wins;
+        
+        
         
         
         
@@ -18,7 +21,7 @@ class User{
         shownUser.innerHTML += 
         `
         <ul>
-        User id: <li>Username:${this.username}</li><p id="winner">${this.username}</p><br>
+        User id:<p id="yesId">${this.id}<p id="winCount"${this.wins}</p>Username:<p id="winnerName">${this.username}</p><br>
         <button class="delete-bttn" data-id=${this.id} onclick="deleteUser()">Quit</button>
         </ul>
         `  

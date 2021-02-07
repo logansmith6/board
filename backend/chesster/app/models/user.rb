@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    include ActiveModel::Serializers::JSON
+    
     has_many :games
     validates_uniqueness_of :username
-    
+    accepts_nested_attributes_for :games
 end

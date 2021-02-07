@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username: "logansmith", wins: 1)
-Game.create(winner: "logansmith", user_id: 67)
+

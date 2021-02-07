@@ -1,7 +1,7 @@
 class Game {
-    constructor(winner){
+    constructor(user_id){
          
-        this.winner = winner;
+        this.user_id = user_id;
     }
 
     renderWinner(){

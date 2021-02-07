@@ -44,6 +44,7 @@ function newUserFormSubmission(){
     let user = {
         username: username,
         wins: 0
+        
                 }   
           
     fetch(`${BASE_URL}/users`, {
@@ -56,13 +57,14 @@ function newUserFormSubmission(){
         })
     .then(resp => resp.json())
     .then(users => {
-        let u = new User(user.id, user.username);
+        let u = new User(user.id, user.username, user.wins);
         if (u.username != "has already been taken"){
             
             hideLogin();
             prepareGame();
             fetchUsers()
             u.id = users.id
+            console.log(users.wins)
         
             u.renderUser();
             
@@ -226,9 +228,9 @@ function  moveCoin(activeCol, choice, coin){
     setActiveCol(choice);
         if(document.getElementsByClassName("black-checker").length === 0){ 
             alert("White Wins"); 
-            let winner = document.getElementById("winner").innerText;
             
-            postGame(winner);
+            
+            postGame();
             clean();
         }
         if(document.getElementsByClassName("white-checker").length === 0){ 
@@ -259,19 +261,18 @@ function getActiveCoin() {
 
 
 
-function postGame(winner){
+function postGame(){
     event.preventDefault();
-    let user = winner;
-     let game = {
-         winner: winner
-     }
-     let usId = document.getElementById("id").innerText;
-
-     let winnerUser = fetch(`${BASE_URL}/users/${usId}`)
-     .then(res => res.json())
-     .then(res =>{
-         return res;
-     })
+    
+    let usId = parseInt(document.getElementById("yesId").innerText);
+    let nameID = document.getElementById("winnerName").innerText;
+    let winId = parseInt(document.getElementById("winCount").innerText)
+    
+    let game = {
+        user_id: usId
+    }
+    let u = new User(usId, nameID, winId, game )
+    
      debugger
     
     fetch(`${BASE_URL}/users/${usId}`, {
@@ -280,16 +281,11 @@ function postGame(winner){
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(u)
         })
     .then(resp => resp.json())
-    .then(users => {
-        
-        
-        
-        
-                      
-    })  
+    
+    
     
 }
 
