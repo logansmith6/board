@@ -16,6 +16,7 @@ const BASE_URL = "http://127.0.0.1:3000"
         .then(users => {
             for (const user of users){
                 let u = new User(user.id, user.username);
+                u.renderUser()
             }
         })
     }
@@ -168,19 +169,27 @@ function renderBoard(){
 }
 
 function onColClick(check, choice){
-    choice.classList.add("red-border");
+    
+    
+    
     if(choice.children[0]){
+        choice.classList.add("red-border");
         let currentCol = getActiveCol();
         if (currentCol && currentCol !== choice){
             setActiveCol(currentCol);
             setActiveCoin(currentCol.children[0]);
         } else {
+           
             setActiveCol(choice);
             setActiveCoin(choice.children[0]);
         }
     }
     let activeCol = getActiveCol();
     let activeCoin = getActiveCoin();
+
+    if(activeCol &&activeCol.classList[1] !== choice.classList[1]){
+        alert("illegal move dawg")
+    }
 
     if(activeCol && activeCol !== check.currentTarget){
         if(Math.abs(activeCol.offsetLeft - check.currentTarget.offsetLeft) > 80 || 
@@ -215,6 +224,8 @@ function  moveCoin(activeCol, choice, coin){
     while(choice.firstChild){
         alert("good")
         choice.removeChild(choice.firstChild);
+        activeColClass[1] === choiceClass[1]
+
     }
     choice.appendChild(coin);
     activeCol.classList.remove("red-border");
