@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :moves
+    include ActiveModel::Serializers::JSON
     has_many :games
     validates_uniqueness_of :username
     

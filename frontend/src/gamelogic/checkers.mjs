@@ -1,4 +1,10 @@
-
+document.addEventListener("DOMContentLoaded", () => {
+    newUserForm();
+    fetchUsers();
+    
+    
+    
+})
 
 
 function renderBoard(){

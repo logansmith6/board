@@ -1,13 +1,14 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    newUserForm();
-    fetchUsers();
     
+    fetchUsers();
+    newUserForm();
     
     
 })
 
 const BASE_URL = "http://127.0.0.1:3000"
+
     // list all users
 
     function fetchUsers(){
@@ -15,8 +16,9 @@ const BASE_URL = "http://127.0.0.1:3000"
         .then(resp => resp.json())
         .then(users => {
             for (const user of users){
+                
                 let u = new User(user.id, user.username);
-                u.renderUser()
+                
             }
         })
     }
@@ -38,9 +40,12 @@ function newUserForm(){
 function newUserFormSubmission(){    
     event.preventDefault();
     let username = document.getElementById("username").value;
+    
     let user = {
-        username: username
-                } 
+        username: username,
+        wins: 0
+                }   
+          
     fetch(`${BASE_URL}/users`, {
         method: "POST",
         headers: {
@@ -50,21 +55,27 @@ function newUserFormSubmission(){
         body: JSON.stringify(user)
         })
     .then(resp => resp.json())
-    .then(user => {
+    .then(users => {
         let u = new User(user.id, user.username);
         if (u.username != "has already been taken"){
-            u.renderUser();
+            
             hideLogin();
             prepareGame();
+            fetchUsers()
+            u.id = users.id
+        
+            u.renderUser();
             
         }   
             else {
                 alert("username taken")
-        }
-            
-        })
+        }       
+    })  
     
 }
+
+
+
 //delete users
 
 function deleteUser(){
@@ -76,7 +87,7 @@ function deleteUser(){
     //this.location.reload();
 }
 
-function hideLogin(){
+function hideLogin(){  
     let form = document.getElementById("login-page");
     let index = document.getElementById("users-container")
     form.style.cssText += "display: none";
@@ -95,28 +106,6 @@ function clean(){
      document.getElementById("checkerboard").style.cssText="display: block";
     
     renderBoard();
-}
-
-
-function fetchMoves(){
-    fetch(`${BASE_URL}/moves`)
-    .then(resp => resp.json())
-    .then(moves => {
-        for (const move of moves){
-            let m = new Move(move.id, move.position, move.user_id, move.game_id);
-        }
-    })
-}
-
-function fetchGames(){
-    fetch(`${BASE_URL}/games`)
-    .then(resp => resp.json())
-    .then(games => {
-        for (const game of games){
-            let g = new Game(game.id, game.user_id);
-            
-        }
-    })
 }
 
 function renderBoard(){
@@ -153,6 +142,7 @@ function renderBoard(){
         }
     }
     let checkerCols = document.getElementsByClassName("checkerCol")
+    
     for(let i = 0; i < checkerCols.length; i++){
         checkerCols[i].onclick = function (check){
             let choice = checkerCols[0]
@@ -187,9 +177,7 @@ function onColClick(check, choice){
     let activeCol = getActiveCol();
     let activeCoin = getActiveCoin();
 
-    if(activeCol &&activeCol.classList[1] !== choice.classList[1]){
-        alert("illegal move dawg")
-    }
+    
 
     if(activeCol && activeCol !== check.currentTarget){
         if(Math.abs(activeCol.offsetLeft - check.currentTarget.offsetLeft) > 80 || 
@@ -198,8 +186,14 @@ function onColClick(check, choice){
             check.currentTarget.classList.remove("red-border");
             activeCoin.parentNode.classList.add("red-border");
         } else {
+            if(activeCol &&activeCol.classList[1] !== choice.classList[1]){
+            alert("illegal move dawg")
+            check.currentTarget.classList.remove("red-border");
+            activeCoin.parentNode.classList.add("red-border");
+        } else {
             moveCoin(activeCol, choice, activeCoin)
         }
+     }   
     }
 }
 
@@ -214,7 +208,7 @@ function  moveCoin(activeCol, choice, coin){
             activeCol.classList.add("red-border");
             return;
         }
-           
+        
         
     }
 
@@ -224,12 +218,23 @@ function  moveCoin(activeCol, choice, coin){
     while(choice.firstChild){
         alert("good")
         choice.removeChild(choice.firstChild);
-        activeColClass[1] === choiceClass[1]
-
+        
+        
     }
     choice.appendChild(coin);
     activeCol.classList.remove("red-border");
     setActiveCol(choice);
+        if(document.getElementsByClassName("black-checker").length === 0){ 
+            alert("White Wins"); 
+            let winner = document.getElementById("winner").innerText;
+            
+            postGame(winner);
+            clean();
+        }
+        if(document.getElementsByClassName("white-checker").length === 0){ 
+            alert("Black Wins"); 
+            clean();
+        }
 }
 
 function setActiveCol(choice) {
@@ -246,6 +251,46 @@ function setActiveCoin(coin) {
 
 function getActiveCoin() {
     return this.activeCoin;
+}
+
+
+
+
+
+
+
+function postGame(winner){
+    event.preventDefault();
+    let user = winner;
+     let game = {
+         winner: winner
+     }
+     let usId = document.getElementById("id").innerText;
+
+     let winnerUser = fetch(`${BASE_URL}/users/${usId}`)
+     .then(res => res.json())
+     .then(res =>{
+         return res;
+     })
+     debugger
+    
+    fetch(`${BASE_URL}/users/${usId}`, {
+        method: "PATCH",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+        })
+    .then(resp => resp.json())
+    .then(users => {
+        
+        
+        
+        
+                      
+    })  
+    
 }
 
 
