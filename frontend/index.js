@@ -91,6 +91,8 @@ function prepareGame(){
 
 function clean(){
     document.getElementById("checkerboard").innerHTML="";
+     document.getElementById("checkerboard").style.cssText="display: block";
+    
     renderBoard();
 }
 
@@ -117,7 +119,7 @@ function fetchGames(){
 }
 
 function renderBoard(){
-        
+       
     for(let i = 0; i < 8; i++){
         let color, boxes, borders;
         for(let j = 0; j < 8; j++){
@@ -153,6 +155,7 @@ function renderBoard(){
     for(let i = 0; i < checkerCols.length; i++){
         checkerCols[i].onclick = function (check){
             let choice = checkerCols[0]
+            
             while(choice){
                 if (choice.tagName === "div"){
                     choice.classList.remove("red-border");
@@ -167,21 +170,21 @@ function renderBoard(){
 function onColClick(check, choice){
     choice.classList.add("red-border");
     if(choice.children[0]){
-        let currentCol = getActiveColumn();
+        let currentCol = getActiveCol();
         if (currentCol && currentCol !== choice){
-            setActiveCol(choice);
+            setActiveCol(currentCol);
             setActiveCoin(currentCol.children[0]);
         } else {
             setActiveCol(choice);
             setActiveCoin(choice.children[0]);
         }
     }
-    let activeCol = getActiveColumn();
+    let activeCol = getActiveCol();
     let activeCoin = getActiveCoin();
 
     if(activeCol && activeCol !== check.currentTarget){
         if(Math.abs(activeCol.offsetLeft - check.currentTarget.offsetLeft) > 80 || 
-        Math.abs(activeColumn.offsetTop - check.currentTarget.offsetTop) > 80) {
+        Math.abs(activeCol.offsetTop - check.currentTarget.offsetTop) > 80) {
             alert("Illegal Move");
             check.currentTarget.classList.remove("red-border");
             activeCoin.parentNode.classList.add("red-border");
@@ -191,15 +194,47 @@ function onColClick(check, choice){
     }
 }
 
-function  moveCoin(activeCol, choice, activeCoin){
+function  moveCoin(activeCol, choice, coin){
     if (choice.firstChild){
-        let activeColClass = activeCoin.classList;
+        let activeColClass = coin.classList;
         let choiceClass = choice.firstChild.classList;
 
         if(activeColClass[1] === choiceClass[1]){
             alert("Illegal Move.")
+            choice.classList.remove("red-border");
+            activeCol.classList.add("red-border");
+            return;
         }
+           
+        
     }
+
+    while(activeCol.firstChild){
+        activeCol.removeChild(activeCol.firstChild);
+    }
+    while(choice.firstChild){
+        alert("good")
+        choice.removeChild(choice.firstChild);
+    }
+    choice.appendChild(coin);
+    activeCol.classList.remove("red-border");
+    setActiveCol(choice);
+}
+
+function setActiveCol(choice) {
+    this.activeCol = choice;
+}
+
+function getActiveCol() {
+    return this.activeCol;
+}
+
+function setActiveCoin(coin) {
+    this.activeCoin = coin;
+}
+
+function getActiveCoin() {
+    return this.activeCoin;
 }
 
 
