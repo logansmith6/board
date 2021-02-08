@@ -130,9 +130,6 @@ function  moveCoin(activeCol, choice, coin){
     setActiveCol(choice);
         if(document.getElementsByClassName("black-checker").length === 0){ 
             alert("White Wins"); 
-            
-            
-            postGame();
             clean();
         }
         if(document.getElementsByClassName("white-checker").length === 0){ 

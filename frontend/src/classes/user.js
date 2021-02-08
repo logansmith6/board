@@ -5,10 +5,6 @@ class User{
         this.wins = wins;
     
     }
-
-
-
-
     //user instance method
     
     renderUser(){

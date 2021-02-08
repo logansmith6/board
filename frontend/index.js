@@ -1,16 +1,11 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-    
+document.addEventListener("DOMContentLoaded", () => {    
     fetchUsers();
-    newUserForm();
-    
-    
+    newUserForm();  
 })
-
 const BASE_URL = "http://127.0.0.1:3000"
 
     // list all users
-
     function fetchUsers(){
         fetch(`${BASE_URL}/users`)
         .then(resp => resp.json())
@@ -23,7 +18,6 @@ const BASE_URL = "http://127.0.0.1:3000"
             }
         })
     }
-
     //create new users
 function newUserForm(){ 
     let registration = document.getElementById("renderForm");
@@ -34,8 +28,7 @@ function newUserForm(){
             <input type="submit" class="login-button" value="Choose Username">
             </form>
     `
-    registration.addEventListener("submit", newUserFormSubmission)
-    
+    registration.addEventListener("submit", newUserFormSubmission)   
 }
 
 function newUserFormSubmission(){    
@@ -46,8 +39,7 @@ function newUserFormSubmission(){
         username: username,
         wins: 0
         
-                }   
-          
+                }    
     fetch(`${BASE_URL}/users`, {
         method: "POST",
         headers: {
@@ -71,11 +63,8 @@ function newUserFormSubmission(){
                 alert("username taken")
                 this.location.reload()
         }       
-    })  
-    
+    })     
 }
-
-
 //delete users
 
 function deleteUser(){
@@ -108,19 +97,16 @@ function clean(){
     bye.innerHTML = '';
     setActiveCol(undefined);
     setActiveCoin(undefined)
-     document.getElementById("checkerboard").style.cssText="display: block";
-    
+    document.getElementById("checkerboard").style.cssText="display: block"; 
     renderBoard();
-    
 }
 //when a user wins, the user model is patched in the database with a new game attached to it. it's wins count also goes up by +1.
 function postGame(){
     event.preventDefault();
-    
+
     let usId = parseInt(document.getElementById("yesId").innerText);
     let nameID = document.getElementById("winnerName").innerText;
     let winId = parseInt(document.getElementById("winCount").innerText)
-    
     let game = {
         user_id: usId
     }
