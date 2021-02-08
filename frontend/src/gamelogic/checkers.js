@@ -1,14 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-    newUserForm();
-    fetchUsers();
-    
-    
-    
-})
-
-
 function renderBoard(){
-        
+       
     for(let i = 0; i < 8; i++){
         let color, boxes, borders;
         for(let j = 0; j < 8; j++){
@@ -40,10 +31,13 @@ function renderBoard(){
             }
         }
     }
+    
     let checkerCols = document.getElementsByClassName("checkerCol")
+    
     for(let i = 0; i < checkerCols.length; i++){
         checkerCols[i].onclick = function (check){
             let choice = checkerCols[0]
+            
             while(choice){
                 if (choice.tagName === "div"){
                     choice.classList.remove("red-border");
@@ -53,33 +47,48 @@ function renderBoard(){
             onColClick(check, this);
         }
     }
+
 }
 
 function onColClick(check, choice){
-    choice.classList.add("red-border");
+    
+    
+    
     if(choice.children[0]){
-        let currentCol = getActiveColumn();
+        choice.classList.add("red-border");
+        let currentCol = getActiveCol();
         if (currentCol && currentCol !== choice){
-            setActiveCol(choice);
+            setActiveCol(currentCol);
             setActiveCoin(currentCol.children[0]);
         } else {
+           
             setActiveCol(choice);
             setActiveCoin(choice.children[0]);
         }
     }
-    let activeCol = getActiveColumn();
+    let activeCol = getActiveCol();
     let activeCoin = getActiveCoin();
+
+    
 
     if(activeCol && activeCol !== check.currentTarget){
         if(Math.abs(activeCol.offsetLeft - check.currentTarget.offsetLeft) > 80 || 
-        Math.abs(activeColumn.offsetTop - check.currentTarget.offsetTop) > 80) {
+        Math.abs(activeCol.offsetTop - check.currentTarget.offsetTop) > 80) {
             alert("Illegal Move");
             check.currentTarget.classList.remove("red-border");
             activeCoin.parentNode.classList.add("red-border");
         } else {
+            if(activeCol &&activeCol.classList[1] !== choice.classList[1]){
+            alert("illegal move dawg")
+            check.currentTarget.classList.remove("red-border");
+            activeCoin.parentNode.classList.add("red-border");
+        } else {
             moveCoin(activeCol, choice, activeCoin)
+            
         }
+     }   
     }
+    
 }
 
 function  moveCoin(activeCol, choice, coin){
@@ -89,21 +98,41 @@ function  moveCoin(activeCol, choice, coin){
 
         if(activeColClass[1] === choiceClass[1]){
             alert("Illegal Move.")
-            choice.remove("red-border");
-            activeCol.add("red-border");
+            choice.classList.remove("red-border");
+            activeCol.classList.add("red-border");
             return;
         }
+        
+        
     }
 
     while(activeCol.firstChild){
-        choice.removeChild(activeCol.firstChild);
+        activeCol.removeChild(activeCol.firstChild);
     }
     while(choice.firstChild){
-        choice.removeChild(targetItem.firstChild);
+        alert("good")
+        choice.removeChild(choice.firstChild);
+        
+        
     }
     choice.appendChild(coin);
+    activeCol.classList.remove("red-border");
     setActiveCol(choice);
+        if(document.getElementsByClassName("black-checker").length === 0){ 
+            alert("White Wins"); 
+            
+            
+            postGame();
+            clean();
+        }
+        if(document.getElementsByClassName("white-checker").length === 0){ 
+            alert("Black Wins"); 
+            clean();
+        }
+        
 }
+
+
 
 function setActiveCol(choice) {
     this.activeCol = choice;
@@ -120,3 +149,7 @@ function setActiveCoin(coin) {
 function getActiveCoin() {
     return this.activeCoin;
 }
+
+
+
+

@@ -4,11 +4,5 @@ class Game {
         this.user_id = user_id;
     }
 
-    renderWinner(){
-        
-        
-    }
-
-
     
 }

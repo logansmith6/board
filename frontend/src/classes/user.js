@@ -1,5 +1,5 @@
 class User{
-    constructor(id, username, wins = 0){
+    constructor(id, username, wins){
         this.id = id;
         this.username = username;
         this.wins = wins;
@@ -21,10 +21,21 @@ class User{
         shownUser.innerHTML += 
         `
         <ul>
-        User id:<p id="yesId">${this.id}<p id="winCount"${this.wins}</p>Username:<p id="winnerName">${this.username}</p><br>
+        User id:<a id="yesId">${this.id}</a><br>Wins:<a id="winCount">${this.wins}</a>Username:<a id="winnerName">${this.username}</a><br>
         <button class="delete-bttn" data-id=${this.id} onclick="deleteUser()">Quit</button>
         </ul>
         `  
+    }
+
+    renderWins(){
+        let winCounter = document.getElementById("winCount");
+        let addWin = parseInt(document.getElementById("winCount").innerText) + 1;
+        winCounter.innerText = 
+        `
+        ${addWin}
+        `
+        
+        document.body.appendChild(winCounter)
     }
 
 }
