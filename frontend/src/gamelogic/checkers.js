@@ -28,15 +28,20 @@ function renderBoard(){
                 document.getElementById("column-" + i + j).appendChild(borders);
                 borders.classList.add("black-checker")
                 borders.classList.add("white-border");
+                
             }
+            
         }
     }
     
+    
+
     let checkerCols = document.getElementsByClassName("checkerCol")
     
     for(let i = 0; i < checkerCols.length; i++){
         checkerCols[i].onclick = function (check){
-            let choice = checkerCols[0]
+            
+            let choice = checkerCols[77]
             
             while(choice){
                 if (choice.tagName === "div"){
@@ -74,9 +79,9 @@ function onColClick(check, choice){
     if(activeCol && activeCol !== check.currentTarget){
         if(Math.abs(activeCol.offsetLeft - check.currentTarget.offsetLeft) > 80 || 
         Math.abs(activeCol.offsetTop - check.currentTarget.offsetTop) > 80) {
-            alert("Illegal Move");
             check.currentTarget.classList.remove("red-border");
             activeCoin.parentNode.classList.add("red-border");
+            alert("Illegal Move");
         } else {
             if(activeCol &&activeCol.classList[1] !== choice.classList[1]){
             alert("illegal move dawg")
@@ -84,6 +89,11 @@ function onColClick(check, choice){
             activeCoin.parentNode.classList.add("red-border");
         } else {
             moveCoin(activeCol, choice, activeCoin)
+            getActiveCol().classList.remove("red-border")
+            getActiveCoin().classList.remove("red-border")
+            setActiveCol(undefined);
+            setActiveCoin(undefined)
+            
             
         }
      }   
@@ -110,7 +120,7 @@ function  moveCoin(activeCol, choice, coin){
         activeCol.removeChild(activeCol.firstChild);
     }
     while(choice.firstChild){
-        alert("good")
+        
         choice.removeChild(choice.firstChild);
         
         
@@ -127,6 +137,7 @@ function  moveCoin(activeCol, choice, coin){
         }
         if(document.getElementsByClassName("white-checker").length === 0){ 
             alert("Black Wins"); 
+            postGame();
             clean();
         }
         

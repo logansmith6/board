@@ -19,6 +19,7 @@ const BASE_URL = "http://127.0.0.1:3000"
                 
                 let u = new User(user.id, user.username);
                 
+                
             }
         })
     }
@@ -71,6 +72,7 @@ function newUserFormSubmission(){
         }   
             else {
                 alert("username taken")
+                this.location.reload()
         }       
     })  
     
@@ -101,13 +103,18 @@ function prepareGame(){
     clearBoardBtn.innerHTML = 'restart game';
     document.body.append(clearBoardBtn);
     clearBoardBtn.addEventListener("click", clean)
+    
 }
 
 function clean(){
-    document.getElementById("checkerboard").innerHTML="";
+    let bye = document.getElementById("checkerboard");
+    bye.innerHTML = '';
+    setActiveCol(undefined);
+    setActiveCoin(undefined)
      document.getElementById("checkerboard").style.cssText="display: block";
     
     renderBoard();
+    
 }
 //when a user wins, the user model is patched in the database with a new game attached to it. it's wins count also goes up by +1.
 function postGame(){
@@ -133,6 +140,8 @@ function postGame(){
         })
     .then(resp => resp.json())
 }
+
+
 
 
 
