@@ -100,7 +100,7 @@ function hideLogin(){
 
 function prepareGame(){
     let clearBoardBtn = document.createElement("button");
-    clearBoardBtn.innerHTML = 'restart game';
+    clearBoardBtn.innerHTML = 'Start game';
     document.body.append(clearBoardBtn);
     clearBoardBtn.addEventListener("click", clean)
     
