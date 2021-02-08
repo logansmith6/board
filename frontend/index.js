@@ -65,10 +65,7 @@ function newUserFormSubmission(){
             prepareGame();
             fetchUsers()
             u.id = users.id
-            console.log(users.wins)
-        
             u.renderUser();
-            
         }   
             else {
                 alert("username taken")
@@ -79,7 +76,6 @@ function newUserFormSubmission(){
 }
 
 
-
 //delete users
 
 function deleteUser(){
@@ -88,7 +84,7 @@ function deleteUser(){
     fetch(`${BASE_URL}/users/${userId}`, {
             method: 'DELETE'
     })
-    //this.location.reload();
+    this.location.reload();
 }
 
 function hideLogin(){  
@@ -100,7 +96,8 @@ function hideLogin(){
 
 function prepareGame(){
     let clearBoardBtn = document.createElement("button");
-    clearBoardBtn.innerHTML = 'Start game';
+    clearBoardBtn.innerHTML = 'Fresh Board';
+    clearBoardBtn.id = "restart-bttn"
     document.body.append(clearBoardBtn);
     clearBoardBtn.addEventListener("click", clean)
     
@@ -128,8 +125,7 @@ function postGame(){
         user_id: usId
     }
     let u = new User(usId, nameID, winId, game )
-    
-    
+
     fetch(`${BASE_URL}/users/${usId}`, {
         method: "PATCH",
         headers: {
@@ -139,6 +135,7 @@ function postGame(){
         body: JSON.stringify(u)
         })
     .then(resp => resp.json())
+    u.renderWins()
 }
 
 

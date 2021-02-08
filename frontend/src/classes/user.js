@@ -3,12 +3,7 @@ class User{
         this.id = id;
         this.username = username;
         this.wins = wins;
-        
-        
-        
-        
-        
-        
+    
     }
 
 
@@ -30,12 +25,10 @@ class User{
     renderWins(){
         let winCounter = document.getElementById("winCount");
         let addWin = parseInt(document.getElementById("winCount").innerText) + 1;
-        winCounter.innerText = 
-        `
-        ${addWin}
-        `
         
-        document.body.appendChild(winCounter)
+        winCounter.innerText = `${addWin}`
+        
+        
     }
 
 }

@@ -89,7 +89,7 @@ function onColClick(check, choice){
             activeCoin.parentNode.classList.add("red-border");
         } else {
             moveCoin(activeCol, choice, activeCoin)
-            getActiveCol().classList.remove("red-border")
+            //getActiveCol().classList.remove("red-border")
             getActiveCoin().classList.remove("red-border")
             setActiveCol(undefined);
             setActiveCoin(undefined)
