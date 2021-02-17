@@ -12,7 +12,7 @@ class User{
         shownUser.innerHTML += 
         `
         <ul>
-        User id:<a id="yesId">${this.id}</a><br>Color: Black<br>Wins:<a id="winCount">${this.wins}</a><br>Username:<a id="winnerName">${this.username}</a><br>
+        User id:<a id="yesId">${this.id}</a><br>Coin: Black<br>Wins:<a id="winCount">${this.wins}</a><br>Username:<a id="winnerName">${this.username}</a><br>
         <button class="delete-bttn" data-id=${this.id} onclick="deleteUser()">Quit</button>
         </ul>
         `  
@@ -21,10 +21,6 @@ class User{
     renderWins(){
         let winCounter = document.getElementById("winCount");
         let addWin = parseInt(document.getElementById("winCount").innerText) + 1;
-        
         winCounter.innerText = `${addWin}`
-        
-        
     }
-
 }

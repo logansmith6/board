@@ -2,23 +2,21 @@
 document.addEventListener("DOMContentLoaded", () => {    
     fetchUsers();
     newUserForm();  
+    dayNightButton();
 })
 const BASE_URL = "http://127.0.0.1:3000"
 
-    // list all users
+    // list all users, or single user passed in
     function fetchUsers(){
         fetch(`${BASE_URL}/users`)
         .then(resp => resp.json())
         .then(users => {
-            for (const user of users){
-                
-                let u = new User(user.id, user.username);
-                
-                
+            for (const user of users){    
+                let u = new User(user.id, user.username);            
             }
         })
     }
-    //create new users
+    //render form to create new users, then call function to save them to db
 function newUserForm(){ 
     let registration = document.getElementById("renderForm");
     registration.innerHTML += 
@@ -46,23 +44,17 @@ function newUserFormSubmission(){
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(user) //stringify object passed in
         })
     .then(resp => resp.json())
-    .then(users => {
-        let u = new User(user.id, user.username, user.wins);
-        if (u.username != "has already been taken"){
-            
+    .then(user => {
+        let u = new User(user.id, user.username, user.wins);   
             hideLogin();
             prepareGame();
-            fetchUsers()
-            u.id = users.id
+            u.id = user.id
             u.renderUser();
-        }   
-            else {
-                alert("username taken")
-                this.location.reload()
-        }       
+            
+             
     })     
 }
 //delete users
@@ -78,9 +70,9 @@ function deleteUser(){
 
 function hideLogin(){  
     let form = document.getElementById("login-page");
-    let index = document.getElementById("users-container")
+    //let index = document.getElementById("users-container")
     form.style.cssText += "display: none";
-    index.style.cssText += "display: block"
+    //index.style.cssText += "display: block"
 }
 
 function prepareGame(){
@@ -103,7 +95,7 @@ function clean(){
 //when a user wins, the user model is patched in the database with a new game attached to it. it's wins count also goes up by +1.
 function postGame(){
     event.preventDefault();
-
+    
     let usId = parseInt(document.getElementById("yesId").innerText);
     let nameID = document.getElementById("winnerName").innerText;
     let winId = parseInt(document.getElementById("winCount").innerText)
@@ -124,8 +116,39 @@ function postGame(){
     u.renderWins()
 }
 
+function dayNightButton(){
+    //toggling background to black/white
+   
 
+    let toggleTime = document.createElement("button");
+    toggleTime.innerHTML = 'Day/Night Mode';
+    toggleTime.id = "toggle-time"
+    document.body.appendChild(toggleTime)
+    toggleTime.addEventListener("click", dayNightToggle)
+}
 
+function dayNightToggle(){
+    let dayNight = document.body
+    dayNight.style.cssText += "background: #050505"
+   
+    if ( dayNight.style.background === "background: rgb(5, 5, 5)"){
+        dayNight.style.cssText += "background: rgb(248, 246, 246)"
+    }else {
+        if (dayNight.style.cssText === "background: rgb(248, 246, 246)"){
+            dayNight.style.cssText += "background: rgb(5, 5, 5)"
+        }
+    }
+
+    
+
+    
+}
+
+function dayNightToggle(){
+        let test = document.body
+        test.classList.toggle('day-night')
+    
+}
 
 
 

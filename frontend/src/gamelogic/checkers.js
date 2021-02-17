@@ -1,5 +1,5 @@
-function renderBoard(){
-       
+//creats a gameboard visual then checks for a user-click on one of the boxes
+function renderBoard(){    
     for(let i = 0; i < 8; i++){
         let color, boxes, borders;
         for(let j = 0; j < 8; j++){
@@ -33,9 +33,6 @@ function renderBoard(){
             
         }
     }
-    
-    
-
     let checkerCols = document.getElementsByClassName("checkerCol")
     
     for(let i = 0; i < checkerCols.length; i++){
@@ -57,8 +54,6 @@ function renderBoard(){
 
 function onColClick(check, choice){
     
-    
-    
     if(choice.children[0]){
         choice.classList.add("red-border");
         let currentCol = getActiveCol();
@@ -74,27 +69,22 @@ function onColClick(check, choice){
     let activeCol = getActiveCol();
     let activeCoin = getActiveCoin();
 
-    
 
     if(activeCol && activeCol !== check.currentTarget){
         if(Math.abs(activeCol.offsetLeft - check.currentTarget.offsetLeft) > 80 || 
         Math.abs(activeCol.offsetTop - check.currentTarget.offsetTop) > 80) {
             check.currentTarget.classList.remove("red-border");
             activeCoin.parentNode.classList.add("red-border");
-            alert("Illegal Move");
+            alert("Illegal Move.");
         } else {
             if(activeCol &&activeCol.classList[1] !== choice.classList[1]){
-            alert("illegal move dawg")
+            alert("Illegal Move.")
             check.currentTarget.classList.remove("red-border");
             activeCoin.parentNode.classList.add("red-border");
         } else {
-            moveCoin(activeCol, choice, activeCoin)
-            //getActiveCol().classList.remove("red-border")
-            getActiveCoin().classList.remove("red-border")
+            moveCoin(activeCol, choice, activeCoin) 
             setActiveCol(undefined);
-            setActiveCoin(undefined)
-            
-            
+            setActiveCoin(undefined)  
         }
      }   
     }
@@ -113,7 +103,7 @@ function  moveCoin(activeCol, choice, coin){
             return;
         }
         
-        
+
     }
 
     while(activeCol.firstChild){
