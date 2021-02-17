@@ -145,8 +145,8 @@ function dayNightToggle(){
 }
 
 function dayNightToggle(){
-        let test = document.body
-        test.classList.toggle('day-night')
+        
+        document.body.classList.toggle('day-night')
     
 }
 

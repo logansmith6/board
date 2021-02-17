@@ -3,7 +3,7 @@
 }
 
 .day-night {
-    background: #000000;
+    background: #3a3939;
     color: #f8f6f6;
 }
 .login-page{
@@ -69,7 +69,7 @@
     float: left;
     width: 80px;
     height: 80px;
-    background-color: #333333;
+    background-color: #100b3d;
     font-size:50px;
     text-align:center;
     display: table-cell;
@@ -81,7 +81,7 @@
     float: left;
     width: 80px;
     height: 80px;
-    background-color: #ffffff;
+    background-color: #aae2ec;
     font-size:50px;
     text-align:center;
     display: table-cell;
